@@ -7,7 +7,7 @@
         
         if(isset($_GET['id'])) {
             
-            $query = "SELECT * FROM pages WHERE id = $_GET[id]";
+            $query = "SELECT * FROM pages WHERE id = '$_GET[id]'";
             $results = mysqli_query($dbc, $query);
             
             $opened = mysqli_fetch_assoc($results);  
@@ -21,22 +21,36 @@
                 
 
                 
-     <a class = "list-group-item " href="?page=pages">
-   <i class = "fa fa-plus"> New Page</i></a>
+     <a class = "list-group-item " href="?page=pages"><i class = "fa fa-plus"> New Page</i></a>
 
             <?php 
 	$query = "SELECT * FROM pages ORDER BY title ASC";
 	$results = mysqli_query($dbc, $query);
-	while($list = mysqli_fetch_assoc($results))  {
+	
+        while($list = mysqli_fetch_assoc($results))  {
 		$blurb = substr(strip_tags($list['body']), 0,160)
                 ?>
                 
-    <a class = "list-group-item <?php selected($list['id'], $opened['id'],'active') ?>" href="index.php?page=pages&id=<?php echo $list['id']?>">
+    <div id="page_<?php echo $list['id']; ?>" class = "list-group-item <?php selected($list['id'], $opened['id'],'active') ?>" 
     
      
-    <h4 class="list-group-item-heading"><?php  echo $list['title']; ?></h4>
+    <h4 class="list-group-item-heading"><?php  echo $list['title']; ?>
+    
+    <span class =  "pull-right">
+        
+        <a href = "" id = "del_<?php echo $list['id']; ?>" class = "btn btn-delete btn-danger"><i class = "fa fa-trash-o"></i></a>
+        <a href = "index.php?page=pages&id=<?php echo $list['id'] ?>" class = "btn btn-default"><i class = "fa fa-chevron-right"></i></a>
+    
+    
+    
+    </span>
+    
+    
+    </h4>
     <!--create description using substring function -->
-    <p class = "list-group-item-text"><?php  echo $blurb; ?></p></a>
+    <p class = "list-group-item-text"><?php  echo $blurb; ?></p>
+    
+    </div>
                   <?php  } ?>     
             </div>
         </div>
@@ -44,9 +58,7 @@
         
         <?php
 	
-	if(isset($message)){
-		echo $message;
-	}
+	if(isset($message)){echo $message;}
 ?>
         
         <form action = "index.php?page=pages&id=<?php echo $opened['id'];?>" method = "post" role = "form">
@@ -117,7 +129,13 @@
             
             <button type = "submit" class = "btn btn-default">Save</button>
             <input type = "hidden" name = "submitted" value = "1">
-            <input type = "hidden" name = "id" value"<?php echo $opened['id'];?>">    
+    
+          <?php if(isset($opened['id'])){  ?>
+            
+              <input type = "hidden" name = "id" value"<?php echo $opened['id'];?>">
+              
+           <?php }?>
+     
         </form>    
         </div>
     </div>

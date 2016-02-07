@@ -26,7 +26,7 @@ $debug = data_setting_value($dbc, 'debug-status');
 
 
 
-$site_title = 'Site Name';
+$site_title = ' Site Name';
 
 if(isset($_GET['page'])) //set $pageid to equal the value give in the URL
 

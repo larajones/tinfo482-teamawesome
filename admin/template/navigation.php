@@ -36,6 +36,14 @@
                     <a href="?page=settings">Settings</a> 
                 </li>
                 
+                    <li>
+                    <a href="?page=suppliers">Vendors</a> 
+                </li>
+                
+                    <li>
+                    <a href="?page=products">Products</a> 
+                </li>
+                
         
                 
             </ul>

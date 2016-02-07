@@ -18,6 +18,8 @@
     
     
     <?php  include (D_TEMPLATE.'/navigation.php'); ?>
+    
+    
     <div class="container">
     	
     	<?php  include ('widgets/breadcrumbs.php'); ?>
@@ -44,7 +46,7 @@
           
     <!--debug -->
     </div>
-    <?php  include (D_TEMPLATE.'/footer.php'); ?>
+    <?php  include (D_TEMPLATE.'/footer2.php'); ?>
     <?php 
     
     if($debug == 1)  {

@@ -17,7 +17,7 @@
 <body>
     
     
-    <?php  include (D_TEMPLATE.'/navigation.php'); ?>
+    <?php  include (D_TEMPLATE.'/navigation2.php'); ?>
     <div class="container">
 
 	<div class="row">
@@ -43,7 +43,7 @@
           
     <!--debug -->
     </div>
-    <?php  include (D_TEMPLATE.'/footer.php'); ?>
+    <?php  include (D_TEMPLATE.'/footer2.php'); ?>
     <?php 
     
     if($debug == 1)  {

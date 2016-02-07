@@ -69,6 +69,44 @@ function data_page($dbc, $id)
 }
 
 
+function data_product($dbc, $id) {
+    
+  
+$query = "SELECT * FROM Products WHERE id = '$_GET[id]'";
+            $results = mysqli_query($dbc, $query);
+
+
+$results = mysqli_query($dbc, $query);
+$data = mysqli_fetch_assoc($results);
+
+//$data['fullname'] = $data['ProductDescription']. ' ' .$data['ProductName'];
+$data['Productname_reverse'] = $data['ProductName']. ' ' .$data['ProductDescription']; 
+
+
+return $data;
+    
+}
+
+function data_supplier($dbc, $id) {
+    
+  
+$query = "SELECT * FROM Suppliers WHERE id = '$_GET[id]'";
+            $results = mysqli_query($dbc, $query);
+
+
+$results = mysqli_query($dbc, $query);
+$data = mysqli_fetch_assoc($results);
+
+//$data['fullname'] = $data['ProductDescription']. ' ' .$data['ProductName'];
+$data['Suppliername_reverse'] = $data['SupplierName']. ' ' .$data['SupplierEmail']; 
+
+
+return $data;
+    
+}
+    
+
+
 
 
 ?>

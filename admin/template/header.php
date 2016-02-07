@@ -11,7 +11,7 @@ if(!isset($_SESSION['username'])){
 <!DOCTYPE html>
 <html>
 <head>
-     <title> <?php  echo $page['title']. ' | ' . $site_title; ?>  </title>
+   <title> <?php  echo $site_title; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php  include ('config/css.php'); ?>
     <?php  include ('config/js.php'); ?>
