@@ -87,11 +87,13 @@
         
         <?php if($opened['avatar'] != '') {?>
         
-        <div id = "avatar">
+            <div id = "avatar">
             
-              <img src ="../uploads/<?php echo $opened['avatar']; ?>">
+                <div class = "avatar-container" style = "background-image: url('../uploads/<?php echo $opened['avatar']; ?>')">
+                    
+                </div>
             
-        </div>
+            </div>
              
           <?php  } ?>
         

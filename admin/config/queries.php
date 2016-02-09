@@ -152,7 +152,14 @@ if(isset($_POST['submitted']) == 1) {
         if(isset($_POST['id']) != '') {
                 
                 $action = 'updated';
-                $query = "UPDATE settings SET id = '$_POST[id]', label = '$label', value = '$value' WHERE id = '$_POST[openedid]'";
+                
+                if(is_numeric($value))
+                {
+                     $query = "UPDATE settings SET id = '$_POST[id]', label = '$label', value = $value WHERE id = '$_POST[openedid]'";
+                }else {
+                
+                     $query = "UPDATE settings SET id = '$_POST[id]', label = '$label', value = '$value' WHERE id = '$_POST[openedid]'";
+                     }
                 $result = mysqli_query($dbc, $query);
                 
         } 

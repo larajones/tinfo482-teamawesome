@@ -5,7 +5,7 @@ include('../../config/connection.php');
 $id =  $_GET['id'];
 
 
-$query = "DELETE FROM pages WHERE id = $id";
+$query = "DELETE FROM pages WHERE id = '$id'";
 $result = mysqli_query($dbc, $query);
 
 
